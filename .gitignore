@@ -1,0 +1,6 @@
+.idea
+.ipynb_checkpoints/
+__pycache__
+/.env
+venv
+recog_data

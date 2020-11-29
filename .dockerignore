@@ -1,0 +1,5 @@
+data
+docker
+.env
+postgres_data
+recog_data
