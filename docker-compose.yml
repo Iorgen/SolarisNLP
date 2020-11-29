@@ -39,17 +39,17 @@ services:
     volumes:
       - ./postgres_data/data:/var/lib/postgresql/data/
 
-  face-recognizer:
+  recognizer:
     build:
       context: ./src
       dockerfile: Dockerfile
     expose:
-      - "8101"
+      - "8000"
     depends_on:
       - recognizer_db
     restart: on-failure
 #    command: gunicorn web_backend.wsgi:application --timeout 500 --bind 0.0.0.0:8000
-    container_name: face_recognizer_app
+    container_name: recognizer
     image: merlinface.dev/face_recognizer_app
     hostname: recognizer
 
