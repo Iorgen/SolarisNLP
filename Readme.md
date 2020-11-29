@@ -5,10 +5,6 @@ docker-compose up -d --build
 http://0.0.0.0:8101/api/v1/docs
 
 
-
-
-
-
 # Urls 
 
 postgres://merlin_user:123456@localhost:54329/merlin_recognizer_database
