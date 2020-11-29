@@ -1,11 +1,11 @@
 version: '3.5'
 
 services:
-  nginx:
-    image: nginx:1.17-alpine
-    container_name: nginx
-    ports:
-      - 80:80
+#  nginx:
+#    image: nginx:1.17-alpine
+#    container_name: nginx
+#    ports:
+#      - 80:80
 #      - 443:443
 #    volumes:
 #      - static_volume:/home/backend/web/static
@@ -13,15 +13,15 @@ services:
 #      - ./nginx/nginx.prod.conf:/etc/nginx/conf.d/nginx.conf
 #      - ./security/certbot/conf:/etc/letsencrypt
 #      - ./security/certbot/www:/var/www/certbot
-    volumes:
-      - ./nginx/nginx.conf:/etc/nginx/conf.d/nginx.conf
-      - static_volume:/home/backend/web/static
-      - media_volume:/home/backend/web/media
-    depends_on:
-      - recognizer
-    networks:
-      - recognizer-internal
-    command: "/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'"
+#    volumes:
+#      - ./nginx/nginx.conf:/etc/nginx/conf.d/nginx.conf
+#      - static_volume:/home/backend/web/static
+#      - media_volume:/home/backend/web/media
+#    depends_on:
+#      - recognizer
+#    networks:
+#      - recognizer-internal
+#    command: "/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'"
 
 #  certbot:
 #    image: certbot/certbot
@@ -50,7 +50,7 @@ services:
       context: ./src
       dockerfile: Dockerfile
     expose:
-      - "8000"
+      - "8011"
     depends_on:
       - recognizer_db
     restart: on-failure
