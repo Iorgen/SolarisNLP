@@ -14,7 +14,7 @@ services:
       - ./security/certbot/conf:/etc/letsencrypt
       - ./security/certbot/www:/var/www/certbot
     depends_on:
-      - face-recognizer
+      - recognizer
     command: "/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'"
 
   certbot:
@@ -52,7 +52,6 @@ services:
     container_name: recognizer
     image: merlinface.dev/face_recognizer_app
     hostname: recognizer
-
     volumes:
       - ./recog_data:/usr/src/face_recog_api/recog_data
     networks:
